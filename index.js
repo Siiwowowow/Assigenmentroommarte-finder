@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,7 +20,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect();
+    // await client.connect();
     const roommatesCollection = client.db('roommatesBD').collection('roommates');
     const userCollection = client.db('roommatesBD').collection('users');
     // For Home Page - 6 available roommates
@@ -108,7 +108,7 @@ async function run() {
       res.send(result);
     });
 
-    await client.db("admin").command({ ping: 1 });
+    // await client.db("admin").command({ ping: 1 });
     console.log("✅ Connected to MongoDB!");
   } finally {
     // Ensures that the client will close when you finish/error
