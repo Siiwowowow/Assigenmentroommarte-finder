@@ -12,6 +12,7 @@ import Home from '../Component/Home';
       children:[
         {
           index:true,
+          path:'/',
           element:<Home></Home>
         }
       ]
